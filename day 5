@@ -1,0 +1,18 @@
+function cyberReindeer(road, time) {
+  let steps = [road];
+  let count = 0;
+  let index = ".";
+
+  for (let i = 1; i < time; i++) {
+    if (i == 5) road = road.replace(/\|/g, "*");
+    const hereAndNowRoad = road.replace(/S[\.\*]/, `${index}S`);
+    if (hereAndNowRoad != road) {
+      count++;
+      index = road[count];
+    }
+    road = hereAndNowRoad;
+    steps.push(road);
+  }
+
+  return steps;
+}
