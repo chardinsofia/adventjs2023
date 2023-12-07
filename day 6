@@ -1,0 +1,15 @@
+function maxDistance(movements) {
+
+    let distance = 0;
+
+    const right = movements.match(/>/g)?.length ?? 0;
+    const left = movements.match(/</g)?.length ?? 0;
+
+    distance += right;
+    distance -= left;
+
+    const extra = movements.length - (right + left);
+
+    return Math.abs(distance) + extra;
+
+}
