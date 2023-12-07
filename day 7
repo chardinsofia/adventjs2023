@@ -1,0 +1,26 @@
+function drawGift(size, symbol) {
+
+  let result = "";
+
+  for(let i = 0; i < size; i++) {
+    result += " ".repeat(size - i - 1)
+              + "#".repeat(i == 0 ? (size - 2 >= 0 ? size - 2 : 0) : 1)
+              + "" + symbol.repeat(i == 0 || i == size -1 ? 0 : size - 2)
+              + "#".repeat(i == size -1 ? size -1 : 0)
+              + "#".repeat(i == size -1 ? 0 : 1)
+              + "" + symbol.repeat(i - 1 <= 0 ? 0 : i - 1)
+              + "#\n";
+
+    if (i == size - 1){
+      for (let j = size-2; j >= 0; j--) {
+        result += "#".repeat(j == 0 ? (size - 2 >= 0 ? size - 2 : 0) : 1)
+              + "" + symbol.repeat(j == 0 || j == size -1 ? 0 : size - 2)
+              + "#".repeat(j == size -1 ? size -1 : 0)
+              + "#".repeat(j == size -1 ? 0 : 1)
+              + "" + symbol.repeat(j - 1 <= 0 ? 0 : j - 1)
+              + "#\n";
+      }
+    }
+  }
+  return result;
+}
