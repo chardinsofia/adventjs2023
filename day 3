@@ -1,0 +1,17 @@
+function findNaughtyStep(original, modified) {
+  let firstChangedChar = '';
+  let longestString = original.length >= modified.length ? original : modified;
+
+  for(let i = 0; i < longestString.length; i++) {
+    if (original.charAt(i) === modified.charAt(i)) {
+    } else {
+      if(original.charAt(i) === modified.charAt(i+1)) {
+        firstChangedChar = modified.charAt(i);
+        break;
+      } else
+        firstChangedChar = original.charAt(i);
+        break;
+    }
+  }
+  return firstChangedChar;
+}
