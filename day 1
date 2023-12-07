@@ -1,0 +1,14 @@
+function findFirstRepeated(gifts) {
+  let giftsObj = {}
+  let result = -1;
+
+  gifts.find(gift => {
+    if (giftsObj[gift]) {
+      result = gift;
+      return true;
+    }
+    giftsObj[gift] = true
+  })
+
+  return result
+}
