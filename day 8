@@ -1,0 +1,24 @@
+function organizeGifts(gifts) {
+  
+  const numbers = gifts.match(/[0-9]+/g)
+  const letters = gifts.match(/[a-z]/g)
+  let organized = "";
+
+  for ( let i = 0; i < numbers.length; i++) {
+    let number = numbers[i]
+    let letter = letters[i]
+      
+    if (number >= 50) {
+      organized += `[${letter}]`.repeat(number / 50)
+      number %= 50
+    }
+    if (number >= 10) {
+      organized += `{${letter}}`.repeat(number / 10)
+      number %= 10;
+    }
+    if (number < 10) {
+      organized += `(${letter.repeat(number)})`.repeat(+!!number)
+    }
+  }
+  return organized
+}
