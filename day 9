@@ -1,0 +1,18 @@
+function adjustLights(lights) {
+    let changes = 0
+    let i = 0
+
+    for(let l of lights) {
+      if (i % 2 === 0 && l !== '🟢' || i % 2 === 1 && l !== '🔴') {
+      changes++;
+      }
+      i++;
+    }
+
+    if (changes > lights.length / 2) {
+        changes = lights.length - changes;
+    }
+  
+    return changes
+  }
+  
