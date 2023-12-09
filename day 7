@@ -4,17 +4,17 @@ function drawGift(size, symbol) {
   let lastI = size - 1;
   let symbolsLineLenght = size - 2 >= 0 ? size - 2 : 0;
 
-  for(let i = 0; i < size; i++) {
+  for (let i = 0; i < size; i++) {
     
     result += " ".repeat(lastI - i)
 
-    if(i == 0) {
+    if (i == 0) {
       result += "#".repeat(symbolsLineLenght)
               + "#".repeat(i == lastI ? 0 : 1)
     } else if (i == lastI) {
       result += "#"
               + "#".repeat(lastI)
-              + symbol.repeat(i - 1);
+              + symbol.repeat(i - 1)
     } else {
       result += "#"
               + symbol.repeat(symbolsLineLenght)
@@ -25,21 +25,16 @@ function drawGift(size, symbol) {
 
     if (i == lastI && lastI !== 0) {
       for (let j = symbolsLineLenght; j >= 0; j--) {
-        
-        if(j == 0) {
+        if (j == 0) {
           result += "#".repeat(symbolsLineLenght + 1)
-                  + "#".repeat(i == lastI - 1? 0 : 1)
-         } else if (i == symbolsLineLenght) {
-          result += "#".repeat(lastI)
-                  + symbol.repeat(j - 1);
-        }  else {
+                  + "#"
+         } else {
           result += "#"
                   + symbol.repeat(symbolsLineLenght)
                   + "#"
                   + symbol.repeat(j - 1)
-                  + "#\n";
+                  + "#\n"
         }
-        
       }
       result += "\n"
     }
